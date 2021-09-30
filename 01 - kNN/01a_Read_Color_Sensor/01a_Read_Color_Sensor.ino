@@ -14,6 +14,7 @@
 #include <Arduino_APDS9960.h>
 
 void setup() {
+//  SET UP A SERIAL COMMUNICATION AT 9600 BAUD RATE
   Serial.begin(9600);
   while (!Serial);
 
@@ -33,11 +34,11 @@ void loop() {
   APDS.readColor(r, g, b);
 
   // print the values
-  Serial.print("[");
+  Serial.print("Reading: R");
   Serial.print(r);
-  Serial.print(",");
+  Serial.print(", G");
   Serial.print(g);
-  Serial.print(",");
+  Serial.print(", B");
   Serial.print(b);
   Serial.println("]");
 

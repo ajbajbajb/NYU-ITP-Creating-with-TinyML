@@ -24,3 +24,6 @@
 1. Once the sketch is uploaded, open the Serial monitor, either by going to `Tools -> Serial Monitor` or by pressing the magnifier in the upper right corner.
 1. Once the sketch is running and the Serial Monitor is connected, there should be a line saying "Hello World!" in the console.
 1. Try typing something in the input field. The Arduino should echo whatever you wrote, prefixed with "echo: "
+ 
+
+// DONE
