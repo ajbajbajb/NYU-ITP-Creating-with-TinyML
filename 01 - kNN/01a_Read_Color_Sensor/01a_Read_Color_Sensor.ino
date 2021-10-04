@@ -29,7 +29,6 @@ void loop() {
     delay(5);
   }
   int r, g, b;
-
   // read the color
   APDS.readColor(r, g, b);
 
