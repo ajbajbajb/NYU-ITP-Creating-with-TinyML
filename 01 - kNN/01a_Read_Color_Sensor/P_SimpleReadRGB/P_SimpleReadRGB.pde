@@ -11,8 +11,8 @@ import processing.serial.*;
 
 Serial myPort;  // Create object from Serial class
 String val;      // Data received from the serial port
-JSONObject colors; // JSONParse Output
-int red, blue, green;
+JSONArray colors; // JSONParse Output
+String red, blue, green;
 
 void setup() 
 {
@@ -23,8 +23,8 @@ void setup()
   // Open whatever port is the one you're using.
   String portName = Serial.list()[3];
   myPort = new Serial(this, portName, 9600);
-  colors = parseJSONObject(val);
-  red = colors.getInt("red");
+  colors = loadJSONArray(val);
+  red = colors.getJSONObject("red");
 }
 
 void draw()
@@ -39,7 +39,7 @@ void draw()
     fill(0);                   // set fill to black
   } 
   else {// If the serial value is not 0,
-    println(colors);
+    println(val);
     println(red);
     fill(100,0,0);
     //fill(127,0,0);                 // set fill to light gray
