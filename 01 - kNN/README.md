@@ -46,6 +46,6 @@ By now you should have the `Arduino_APDS9960` library ready for reading the sens
 ### Going further (~Optional)
 1. Name the classes.
 1. Try adding more classes.
-1. Try changing the `K = 3` value if you lose accuracy with more classes.
-1. Try adding more or less samples to capture
-1. Show what class is selected by changing the RGB LED for a brief moment.
+1. Try changing the `K = 3` value if you lose accuracy with more classes. (accuracy was high, didn't change, should attempt)
+1. Try adding more or less samples to capture (added 5 classes, little luck registering black)
+1. Show what class is selected by changing the RGB LED for a brief moment. (flickered using a Blink loop)

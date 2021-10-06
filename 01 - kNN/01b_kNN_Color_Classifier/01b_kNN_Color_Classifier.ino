@@ -2,13 +2,13 @@
   kNN Color Classifier
 */
 
-// Import the kNN lib
+// Import the kNN lib, AFTER IMPORTING IT FROM THE LIBRARIES
 #include <Arduino_KNN.h>
 // Import the sensor lib
 #include <Arduino_APDS9960.h>
 
 // Create a KNNClassifier to classify 3 colors
-const int NUM_CLASSES = 3;
+const int NUM_CLASSES = 5;
 KNNClassifier classifier(NUM_CLASSES);
 
 // The k in kNN. How many closest neighbors to find and compare too
@@ -24,7 +24,7 @@ const int PROXIMITY_THRESHOLD = 1;
 const int BRIGHTNESS_THRESHOLD = 200;
 
 // Names for each class
-const String label[NUM_CLASSES] = {"Class 1", "Class 2", "Class 3"};
+const String label[NUM_CLASSES] = {"Orange", "White", "Blue - Green", "Red", "Finger"};
 
 // Array holding our current rgb color values
 float color[3];
@@ -71,6 +71,7 @@ void readColor(float color[]){
     Serial.print(",");
     Serial.print(color[2]);
     Serial.println("]");
+    
 }
 
 void collectSamples(){
@@ -101,8 +102,22 @@ void collectSamples(){
   }
 }
 
-void setup() {
+void blinkResponse(int x) {
+  // had to dick around with the numbers to make it work, bc zero index lists
+    for (int blinkNum = 1; blinkNum <= (x + 1); blinkNum ++) {
+        Serial.print("Blink!");            // let the monitor know it's blinking
+        digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+        delay(200);                       // wait a flash
+         digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+        delay(200);                       // wait a flash
+ 
+    }
+    Serial.println("");
+}
 
+void setup() {
+  //SETUP LED FOR BLINK RESPONSE
+  pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(9600);
   // Wait for serial
   while (!Serial);
@@ -133,4 +148,5 @@ void loop() {
   // Print the classification
   Serial.print("You showed me ");
   Serial.println(label[classification]);
+  blinkResponse(classification);
 }
