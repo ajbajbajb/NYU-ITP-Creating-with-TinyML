@@ -24,10 +24,6 @@
 void setup() {
 //  SET UP A SERIAL COMMUNICATION AT 9600 BAUD RATE
   
-  pinMode(RED, OUTPUT);
-  pinMode(BLUE, OUTPUT);
-  pinMode(GREEN, OUTPUT);
-  pinMode(LED_PWR, OUTPUT);
   Serial.begin(9600);
   while (!Serial);
   
@@ -39,29 +35,53 @@ void setup() {
 
 void loop() {
   
-  // Check if a color reading is available
-  while (!APDS.colorAvailable()) {
+
+  // check if a color reading is available
+  while (! APDS.colorAvailable()) {
     delay(5);
   }
   int r, g, b;
+
   // read the color
   APDS.readColor(r, g, b);
 
+  // COLORS ARE BINARY SO WE'RE ONLY USING 4 COLORS, RED, BLUE, GREEN, WHITE
+  if (r > g & r > b)
+  {
+    digitalWrite(LEDR, LOW);
+    digitalWrite(LEDG, HIGH);
+    digitalWrite(LEDB, HIGH);
+  }
+  else if (g > r & g > b)
+  {
+    digitalWrite(LEDG, LOW);
+    digitalWrite(LEDR, HIGH);
+    digitalWrite(LEDB, HIGH);
+  }
+  else if (b > g & b > r)
+  {
+    digitalWrite(LEDB, LOW);
+    digitalWrite(LEDR, HIGH);
+    digitalWrite(LEDG, HIGH);
+  }
+  else
+  {
+    digitalWrite(LEDR, HIGH);
+    digitalWrite(LEDG, HIGH);
+    digitalWrite(LEDB, HIGH);
+  }
+
+
   // print the values
-  Serial.print("Reading: R");
-  Serial.print(r);
-  Serial.print(", G");
-  Serial.print(g);
-  Serial.print(", B");
-  Serial.print(b);
-  Serial.println("]");
-  
-  digitalWrite(RED, HIGH);
-  digitalWrite(GREEN, HIGH);
-  digitalWrite(BLUE, HIGH);
-  digitalWrite(LED_PWR, HIGH);
+  Serial.print("Red light = ");
+  Serial.println(r);
+  Serial.print("Green light = ");
+  Serial.println(g);
+  Serial.print("Blue light = ");
+  Serial.println(b);
+  Serial.println();
 
   // wait a bit before reading again
-  delay(1000);
+  delay(500);
+
 }
-  
