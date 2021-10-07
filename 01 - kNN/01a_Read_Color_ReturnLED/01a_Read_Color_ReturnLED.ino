@@ -1,3 +1,4 @@
+ 
 /*
   APDS9960 - Color Sensor
 
@@ -13,7 +14,8 @@
 
 #include <Arduino_APDS9960.h>
 
-// define the led colors
+// define the led colors using the specific 
+// pin numbers that connect to each LED
 #define RED 25     
 #define BLUE 24     
 #define GREEN 23
