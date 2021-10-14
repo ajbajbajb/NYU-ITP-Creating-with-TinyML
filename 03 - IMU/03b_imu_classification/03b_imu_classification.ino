@@ -10,7 +10,7 @@
 #include "model.h"
 
 // array to map gesture index to a name
-const char *GESTURES[] = { /* this needs to be filled in */ };
+const char *GESTURES[] = {"circle", "onetwothreefour", "grasshopper", "hockeyswipe"};
 
 const int NUM_GESTURES = sizeof(GESTURES) / sizeof(GESTURES[0]);
 

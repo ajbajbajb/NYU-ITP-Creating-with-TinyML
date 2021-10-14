@@ -5,7 +5,7 @@
 const float motion_threshold = 0.3;
 
 // Num samples to record per gesture. Accelerometer and Gyroscope updates at
-// 104hz, so 120 samples will record a second
+// 104hz, so 120 samples will record one second
 const int num_samples_per_gesture = 104;
 
 // Time the device needs to be held still before we start a new recording
@@ -40,7 +40,6 @@ void setup() {
   // Print our header - accelorameter.x, .y, .z and gyroscope.x, .y and .z
   Serial.println("ax,ay,az,gx,gy,gz");
 }
-
 inline void normalize(float &v1, float &v2, float &v3, float min, float max) {
   const float range = max - min;
   v1 /= range;
