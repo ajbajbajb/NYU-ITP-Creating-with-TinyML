@@ -236,6 +236,7 @@ void loop(){
         Serial.print(GESTURES[max_index]);
 //        Serial.println();
 //        Serial.println();
+        delay(2000);
       }
     }
   }
