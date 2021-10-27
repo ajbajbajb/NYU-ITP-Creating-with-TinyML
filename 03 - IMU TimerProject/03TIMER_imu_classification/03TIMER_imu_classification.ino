@@ -1,4 +1,5 @@
 
+
 #include <Arduino_LSM9DS1.h>
 
 #include <TensorFlowLite.h>
@@ -9,8 +10,12 @@
 #include <tensorflow/lite/version.h>
 #include "model.h"
 
+// MODEL TRAINED OCTOBER 27TH 2021
+
 // array to map gesture index to a name
-const char *GESTURES[] = {"circle", "onetwothreefour", "grasshopper", "hockeyswipe"};
+// this is what we pull from our tf Colab file
+const char *GESTURES[] = {"sleep", "toothbrush", "egg", "coffee"};
+
 
 const int NUM_GESTURES = sizeof(GESTURES) / sizeof(GESTURES[0]);
 

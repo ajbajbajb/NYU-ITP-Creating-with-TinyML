@@ -35,8 +35,8 @@ void setup() {
   eggV.speed(1);
   sunriseV.speed(5);
   coffeeV.speed(1);
-  background(200);
-  status = "Ready";
+  background(100);
+  status = "ready";
   timerGo(0);
 }
 
@@ -79,7 +79,7 @@ void timerGo(int duration){
       if (duration == 0) {
          text("Ready", 20, 480);
       } else {
-        text(duration - (millis()/1000), 20, 480);
+        text(((millis()/1000)-duration), 20, 480);
       }
       fill(255);
 }
@@ -90,34 +90,40 @@ void statusText(String s){
 }
 void videoPlayer(String response){
   if (response != null) {
-      if (response.contains("egg")) {
+      if (response.contains("hockeyswipe")) {
       background(bgColor);
+      println("swipe means egg!");
       eggV.play();
       timerGo(420);
       image(eggV, videoXY, videoXY);
       statusText("Perfect Egg");
     }
-    else if (response.contains("toothbrush")) {
+    else if (response.contains("grasshopper")) {
       background(bgColor);
+      println("Grasshopper means toothbrush!");
       toothbrushV.loop();
       image(toothbrushV, videoXY, videoXY);
       statusText("brush for 2 mins");
       timerGo(120);
     }
-    else if (response.contains("sleep")) {
+    else if (response.contains("onetwothreefour")) {
       background(bgColor);
       sunriseV.loop();
       image(sunriseV, videoXY, videoXY);
       statusText("ok, another 20 mins");
       timerGo(1200);
     }
-    else if (response.contains("coffee")) {
+    else if (response.contains("circle")) {
       background(bgColor);
+      println("Circle -> Coffee");
       statusText("Coffee");
       coffeeV.loop();
       image(coffeeV, videoXY, videoXY);
       timerGo(3000);
-      }
+    }
+    else {
+      println("nothing received");
+  }
     }
     else {
       println(" null detected");
