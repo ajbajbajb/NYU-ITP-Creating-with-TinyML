@@ -51,15 +51,15 @@ void draw(){
     }
     else if (textResponse.contains("grasshopper")) {
       println("Grasshopper!");
-      image(Grassimg, 40, 40, 400, 400);
+      image(Grassimg, 0, 0, 400, 400);
     }
     else if (textResponse.contains("onetwothreefour")) {
       println("Shake it up!");
-      image(onetwoImg, 40, 40, 400, 400);
+      image(onetwoImg, 0, 0, 400, 400);
     }
     else if (textResponse.contains("circle")) {
       println("round shape");
-      image(circleImg, 40, 40, 400, 400);
+      image(circleImg, 0, 0, 400, 400);
     }
     else {
       println("nothing received");
