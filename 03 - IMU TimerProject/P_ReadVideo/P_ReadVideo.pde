@@ -32,7 +32,7 @@ void setup() {
   sunriseV = new Movie(this, "sunrise.mp4");
   toothbrushV = new Movie(this, "teeth.mp4");
   toothbrushV.speed(1);
-  eggV.speed(1);
+  eggV.speed(8);
   sunriseV.speed(5);
   coffeeV.speed(1);
   background(200);
