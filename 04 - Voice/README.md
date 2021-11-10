@@ -19,7 +19,7 @@ I highly recommend using a virtual environment when working with python locally.
 
 1. Make sure you have python3 installed. Sometimes both python and python3 are installed on the system and python 3 will be aliased to python3 (and pip to pip3).
 1. cd into 04_create_voice_dataset: `% cd 04_create_voice_dataset`
-1. Install requirements `% pip -r requirements.txt`
+1. Install requirements `% pip -r requirements.txt` // AJB need to change this to `pip install -r requirements.txt`?
 1. Run `% python3 generate.py --words=cat,dog` (or whatever word you want to try)
     1. You can run `% python3 generate.py --help` to see some other options
 1. Wait for everything to be downloaded and files to be generated.
