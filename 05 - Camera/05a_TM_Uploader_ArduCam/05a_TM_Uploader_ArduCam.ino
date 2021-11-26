@@ -59,9 +59,9 @@ void flushCap() {
 }
 
 void loop() {
-  Serial.println("creating image");
+//  Serial.println(000"creating image");
   GetImage(kNumCols, kNumRows, kNumChannels, data);
-  Serial.println("got image");
+//  Serial.println("got image");
   Serial.write(data, bytesPerFrame);
 //  flushCap();
 }
