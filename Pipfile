@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 pydub = "*"
+ipykernel = "*"
+matplotlib = "*"
+bleak = "*"
+asyncio = "*"
 
 [dev-packages]
 
