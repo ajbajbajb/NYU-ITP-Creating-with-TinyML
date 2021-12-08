@@ -19,7 +19,7 @@ PASSWORD = keys[1]
 # port = '/dev/cu.usbmodem14101'
 # FOR WINDOWS
 
-port = 'COM6'
+port = 'COM10'
 baud = 115200
 timeoutLength = 1
 
