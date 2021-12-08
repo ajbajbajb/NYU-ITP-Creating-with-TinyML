@@ -97,15 +97,20 @@ void loop()
     }
 
     if (++print_results >= (EI_CLASSIFIER_SLICES_PER_MODEL_WINDOW)) {
+      
+      // AJB: REMOVED A LOT OF THE LOGGING TO STREAMLINE OUTPUT TO PYTHON...
+      
         // print the predictions
-        ei_printf("Predictions ");
-        ei_printf("(DSP: %d ms., Classification: %d ms., Anomaly: %d ms.)",
-            result.timing.dsp, result.timing.classification, result.timing.anomaly);
-        ei_printf(": \n");
-        for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
-            ei_printf("    %s: %.5f\n", result.classification[ix].label,
-                      result.classification[ix].value);
-        }
+//        ei_printf("Predictions ");
+//        ei_printf("(DSP: %d ms., Classification: %d ms., Anomaly: %d ms.)",
+//            result.timing.dsp, result.timing.classification, result.timing.anomaly);
+//        ei_printf(": \n");
+        ei_printf("    %s: %.5f\n", result.classification[0].label,
+                      result.classification[0].value);
+//        for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
+//            ei_printf("    %s: %.5f\n", result.classification[ix].label,
+//                      result.classification[ix].value);
+//        }
 #if EI_CLASSIFIER_HAS_ANOMALY == 1
         ei_printf("    anomaly score: %.3f\n", result.anomaly);
 #endif
