@@ -1,1 +1,1 @@
-let cat = 1;
+let cat = 0;
